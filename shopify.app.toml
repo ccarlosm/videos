@@ -1,0 +1,29 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "bb11125b70baddf623fea9effe56f93f"
+name = "Remix App Template"
+handle = "remix-app-template-11"
+application_url = "https://elections-destroy-message-spirit.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "remix-apps-youtube-channel.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = ""
+
+[auth]
+redirect_urls = [
+  "https://elections-destroy-message-spirit.trycloudflare.com/auth/callback",
+  "https://elections-destroy-message-spirit.trycloudflare.com/auth/shopify/callback",
+  "https://elections-destroy-message-spirit.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+[pos]
+embedded = false
