@@ -110,8 +110,27 @@ export default function Index() {
     }, [productId, shopify]);
     const generateProduct = () => fetcher.submit({}, { method: "POST" });
 
+    //Contextual save bar. Includes the Polaris markup for the save bar
+    const ContextualSaveBar = () => {
+        return (
+            <ui-save-bar id="settings-save-bar">
+                <button variant="primary" id="settings-save-button" onClick={saveSettingsAction}></button>
+                <button id="settings-discard-button" onClick={restoreSettingsAction}></button>
+            </ui-save-bar>
+        );
+    }
+
+    const saveSettingsAction = () => {
+        console.log("Save settings");
+    }
+
+    const restoreSettingsAction = () => {
+        console.log("Restore settings");
+    }
+
     return (
         <Page>
+            <ContextualSaveBar />
             <TitleBar title="Remix app template">
                 <button variant="primary" onClick={generateProduct}>
                     Generate a product
@@ -121,6 +140,7 @@ export default function Index() {
                 <Layout>
                     <Layout.Section>
                         <Card>
+                            <button onClick={() => {document.getElementById('settings-save-bar').show()}}>Show</button> 
                             <BlockStack gap="500">
                                 <BlockStack gap="200">
                                     <Text as="h2" variant="headingMd">
