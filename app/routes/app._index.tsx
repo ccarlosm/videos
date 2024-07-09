@@ -14,7 +14,7 @@ import {
     Link,
     InlineStack,
 } from "@shopify/polaris";
-import { TitleBar, useAppBridge } from "@shopify/app-bridge-react";
+import { TitleBar, useAppBridge, SaveBar } from "@shopify/app-bridge-react";
 import { authenticate } from "~/shopify.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
@@ -110,8 +110,21 @@ export default function Index() {
     }, [productId, shopify]);
     const generateProduct = () => fetcher.submit({}, { method: "POST" });
 
+    const saveSettingsAction = () => {
+        shopify.toast.show("Settings saved");
+    };
+
+    const restoreSettingsAction = () => {
+        shopify.saveBar.hide('settings-save-bar');
+        shopify.toast.show("Settings restored");
+    };
+
     return (
         <Page>
+            <SaveBar id="settings-save-bar">
+                <button variant="primary" id="settings-save-button" onClick={saveSettingsAction}>Save</button>
+                <button id="settings-discard-button" onClick={restoreSettingsAction}>Discard</button>
+            </SaveBar>
             <TitleBar title="Remix app template">
                 <button variant="primary" onClick={generateProduct}>
                     Generate a product
@@ -121,6 +134,7 @@ export default function Index() {
                 <Layout>
                     <Layout.Section>
                         <Card>
+                            <Button variant="primary" onClick={() => {shopify.saveBar.show('settings-save-bar')}}>Show SaveBar</Button>
                             <BlockStack gap="500">
                                 <BlockStack gap="200">
                                     <Text as="h2" variant="headingMd">

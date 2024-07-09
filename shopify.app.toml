@@ -3,7 +3,7 @@
 client_id = "bb11125b70baddf623fea9effe56f93f"
 name = "Remix App Template"
 handle = "remix-app-template-11"
-application_url = "https://elections-destroy-message-spirit.trycloudflare.com"
+application_url = "https://satellite-walker-priority-kennedy.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = ""
 
 [auth]
 redirect_urls = [
-  "https://elections-destroy-message-spirit.trycloudflare.com/auth/callback",
-  "https://elections-destroy-message-spirit.trycloudflare.com/auth/shopify/callback",
-  "https://elections-destroy-message-spirit.trycloudflare.com/api/auth/callback"
+  "https://satellite-walker-priority-kennedy.trycloudflare.com/auth/callback",
+  "https://satellite-walker-priority-kennedy.trycloudflare.com/auth/shopify/callback",
+  "https://satellite-walker-priority-kennedy.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
